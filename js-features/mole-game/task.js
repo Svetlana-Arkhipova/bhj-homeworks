@@ -7,8 +7,8 @@ function getHole(index) {
   return document.getElementById(`hole${index}`);
 }
 
-  //hole = getHole(1);
-
+for (let i = 1; i <= 9; i++) {
+  let hole = getHole(i);
   hole.onclick = function() {
     if (hole.className.includes('hole_has-mole')) {
       deadCounter += 1;
@@ -26,24 +26,4 @@ function getHole(index) {
       dead.textContent = deadCounter;
     }
   }
-
-
-
-
-// for (let i = 1; i <= 9; i++) {
-//   hole = getHole(i);
-//   if (hole.className.includes('hole_has-mole')) {
-//     hole.onclick = function() {
-//       deadCounter += 1;
-//       dead.textContent = deadCounter;
-//     }
-//   } else {
-//     hole.onclick = function() {
-//       lostCounter += 1;
-//       lost.textContent = lostCounter;
-//     }
-//   }
-//   if (deadCounter === 10) {
-//     alert('Вы выиграли!');
-//   }
-// }
+}
