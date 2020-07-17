@@ -10,6 +10,9 @@ arrLinks.forEach((item) => {
           activeSubMenu.classList.remove('menu_active');
       }
       subMenu.classList.add('menu_active');
+      if (subMenu === activeSubMenu) {
+        subMenu.classList.remove('menu_active');
+      }
       return false;
     }
   }
