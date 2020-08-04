@@ -25,10 +25,13 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
     this.currentSymbol = this.container.querySelector('.symbol_current');
-    let symbol = this.currentSymbol.textContent;
-    document.onkeydown = function(event) {
-      console.log(event.key);
-    }
+    document.addEventListener("keydown", () => {
+      if (this.currentSymbol.textContent === event.key) {
+        this.success();
+      } else {
+        this.fail();
+      }
+    })
   }
 
   success() {
