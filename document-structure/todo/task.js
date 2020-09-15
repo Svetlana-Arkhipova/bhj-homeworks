@@ -11,10 +11,11 @@ function createTask(taskText) {
   return task;
 }
 
-function taskActions() {
+function taskActions(e) {
     let tasksList = document.getElementById('tasks__list');
     let inputField = document.getElementById('task__input');
     let taskText = inputField.value;
+    e.preventDefault();
     if (taskText) {
       let task = createTask(taskText);
       tasksList.insertAdjacentElement('beforeEnd', task);
