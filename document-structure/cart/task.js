@@ -39,18 +39,13 @@ addButtons.forEach((button) => {
     let productCount = product.querySelector('div.product__quantity-value').textContent;
 
     let cartProducts = document.querySelectorAll('div.cart__product');
+    let cartProductsArr = Array.from(cartProducts);
 
-    if (cartProducts.length != 0) {
-      for (let i = 0; i < cartProducts.length; i++) {
-        if (cartProducts[i].dataset.id === productDataId) {
-          quantity = +cartProducts[i].querySelector('div.cart__product-count').textContent;
-          quantity += +productCount;
-          cartProducts[i].querySelector('div.cart__product-count').textContent = quantity;
-        }
-        else {
-          document.querySelector('div.cart__products').insertAdjacentElement('beforeEnd', createProduct(productDataId, productImg, productCount));
-        }
-      }
+    let index = cartProductsArr.findIndex(cartProduct => cartProduct.dataset.id === productDataId);
+    if (index != -1) {
+      quantity = +cartProducts[index].querySelector('div.cart__product-count').textContent;
+      quantity += +productCount;
+      cartProducts[index].querySelector('div.cart__product-count').textContent = quantity;
     } else {
       document.querySelector('div.cart__products').insertAdjacentElement('beforeEnd', createProduct(productDataId, productImg, productCount));
     }
