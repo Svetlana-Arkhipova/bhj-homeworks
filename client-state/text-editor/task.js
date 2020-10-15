@@ -1,5 +1,10 @@
 let editor = document.getElementById('editor');
+//localStorage.clear();
 editor.oninput = () => {
   localStorage.editorText = editor.value;
 }
-editor.value = localStorage.editorText;
+if (localStorage.editorText != undefined) {
+  editor.value = localStorage.editorText;
+}
+
+//editor.value = localStorage.editorText;
