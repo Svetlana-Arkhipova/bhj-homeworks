@@ -21,14 +21,15 @@ if (localStorage.userId != undefined) {
 
     request.onload = () => {
       let responseObj = request.response;
-      if (!responseObj.answer) {
+      if (!responseObj.success) {
         alert('Неверный логин/пароль');
       } else {
-        userId = responseObj['user_id']
+        userId = responseObj['user_id'];
         localStorage.userId = userId;
         signin.classList.remove('signin_active');
-        addUserId(iserId);
+        addUserId(userId);
       }
     }
+    return false;
   }
 }
